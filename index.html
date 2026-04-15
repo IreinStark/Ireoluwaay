@@ -19,6 +19,7 @@
       --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
       --radius-lg: 24px;
       --radius-md: 16px;
+      --space-panel: clamp(18px, 2.8vw, 26px);
     }
 
     * {
@@ -40,7 +41,7 @@
       color: var(--text-main);
       font-family: "Work Sans", "Segoe UI", sans-serif;
       line-height: 1.65;
-      padding: 28px 18px 56px;
+      padding: clamp(18px, 2.7vw, 28px) clamp(14px, 2.2vw, 18px) 56px;
     }
 
     main {
@@ -59,7 +60,7 @@
     }
 
     .panel {
-      padding: 26px;
+      padding: var(--space-panel);
       animation: rise 700ms ease both;
       animation-delay: var(--delay, 0ms);
     }
@@ -78,6 +79,7 @@
       overflow: hidden;
       border: 1px solid rgba(242, 232, 213, 0.18);
       min-height: 320px;
+      aspect-ratio: 3 / 4;
     }
 
     .profile-wrap img {
@@ -153,6 +155,13 @@
 
     .btn:hover {
       transform: translateY(-2px);
+    }
+
+    .btn:focus-visible,
+    .hw-card:focus-visible,
+    .contact a:focus-visible {
+      outline: 2px solid rgba(243, 183, 183, 0.8);
+      outline-offset: 2px;
     }
 
     .about {
@@ -252,6 +261,7 @@
       overflow-x: auto;
       scrollbar-width: thin;
       padding-bottom: 4px;
+      scroll-snap-type: x mandatory;
     }
 
     .homeworks::-webkit-scrollbar {
@@ -277,6 +287,7 @@
       letter-spacing: 0.03em;
       color: var(--text-soft);
       text-decoration: none;
+      scroll-snap-align: start;
       transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
     }
 
@@ -340,6 +351,45 @@
         width: 100%;
         height: 2px;
         margin: 2px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        letter-spacing: 0.14em;
+        padding: 8px 12px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hw-card {
+        min-width: 132px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .panel,
+      .card,
+      .btn,
+      .hw-card {
+        animation: none;
+        transition: none;
       }
     }
   </style>
@@ -426,8 +476,8 @@
         <a class="hw-card" href="HW/homework%202.docx" target="_blank" rel="noopener noreferrer">HW 2</a>
         <a class="hw-card active" href="HW/Homework%203%20.docx" target="_blank" rel="noopener noreferrer">HW 3</a>
         <a class="hw-card" href="HW/hw4.docx" target="_blank" rel="noopener noreferrer">HW 4</a>
-        <span class="hw-card unavailable" aria-disabled="true">HW 5</span>
-        <span class="hw-card unavailable" aria-disabled="true">HW 6</span>
+        <a class="hw-card" href="HW/hw5.docx" target="_blank" rel="noopener noreferrer">HW 5</a>
+        <a class="hw-card" href="HW/hw6.docx" target="_blank" rel="noopener noreferrer">HW 6</a>
       </div>
     </section>
 
