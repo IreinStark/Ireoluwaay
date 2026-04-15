@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework Showcase</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg-main: #0d0d0d;
+      --bg-soft: #171819;
+      --text-main: #f2e8d5;
+      --text-soft: #cbc1ad;
+      --accent-soft: rgba(165, 72, 72, 0.25);
+      --glass: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.14);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(165, 72, 72, 0.28) 0, transparent 38%),
+        radial-gradient(circle at 80% 15%, rgba(86, 98, 130, 0.23) 0, transparent 42%),
+        linear-gradient(140deg, var(--bg-main), var(--bg-soft));
+      color: var(--text-main);
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      line-height: 1.65;
+      padding: clamp(16px, 2.5vw, 28px);
+    }
+
+    main {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: clamp(16px, 2.5vw, 24px);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      color: var(--text-soft);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+      transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(242, 232, 213, 0.38);
+      background: var(--accent-soft);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid rgba(243, 183, 183, 0.8);
+      outline-offset: 2px;
+    }
+
+    .viewer-wrap {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.25);
+      min-height: 68vh;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 68vh;
+      border: 0;
+      display: block;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 640px) {
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="glass panel">
+      <div class="header">
+        <h1 id="title">Homework Showcase</h1>
+        <a class="btn" href="index.html">Back to Portfolio</a>
+      </div>
+      <p id="description">Preview the selected homework below.</p>
+      <div class="actions">
+        <a class="btn" id="openLink" href="#" target="_blank" rel="noopener noreferrer">Open Original File</a>
+        <a class="btn" id="downloadLink" href="#">Download File</a>
+      </div>
+    </section>
+
+    <section class="glass panel">
+      <div class="viewer-wrap">
+        <iframe id="viewer" title="Homework preview"></iframe>
+      </div>
+      <p class="note" id="viewerNote">If the preview does not load, use &quot;Open Original File&quot;.</p>
+    </section>
+  </main>
+
+  <script>
+    const assignments = {
+      "1": {
+        title: "Homework 1",
+        description: "Website-based homework showcase.",
+        type: "link",
+        url: "https://ireinstark.github.io/Ireoluwaay/"
+      },
+      "2": {
+        title: "Homework 2",
+        description: "Document showcase for Homework 2.",
+        type: "doc",
+        path: "HW/homework%202.docx"
+      },
+      "3": {
+        title: "Homework 3",
+        description: "Document showcase for Homework 3.",
+        type: "doc",
+        path: "HW/Homework%203%20.docx"
+      },
+      "4": {
+        title: "Homework 4",
+        description: "Document showcase for Homework 4.",
+        type: "doc",
+        path: "HW/hw4.docx"
+      },
+      "5": {
+        title: "Homework 5",
+        description: "Document showcase for Homework 5.",
+        type: "doc",
+        path: "HW/hw5.docx"
+      },
+      "6": {
+        title: "Homework 6",
+        description: "Document showcase for Homework 6.",
+        type: "doc",
+        path: "HW/hw6.docx"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const hw = params.get("hw") || "1";
+    const item = assignments[hw] || assignments["1"];
+
+    const titleEl = document.getElementById("title");
+    const descEl = document.getElementById("description");
+    const openLink = document.getElementById("openLink");
+    const downloadLink = document.getElementById("downloadLink");
+    const viewer = document.getElementById("viewer");
+    const viewerNote = document.getElementById("viewerNote");
+
+    titleEl.textContent = item.title;
+    descEl.textContent = item.description;
+
+    if (item.type === "link") {
+      openLink.href = item.url;
+      downloadLink.href = item.url;
+      downloadLink.textContent = "Visit Page";
+      viewer.src = item.url;
+      viewerNote.textContent = "If the page blocks embedding, use \"Visit Page\".";
+    } else {
+      const fileUrl = new URL(item.path, window.location.href).href;
+      const viewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(fileUrl)}`;
+
+      openLink.href = fileUrl;
+      downloadLink.href = fileUrl;
+      downloadLink.setAttribute("download", "");
+
+      if (window.location.protocol.startsWith("http")) {
+        viewer.src = viewerUrl;
+      } else {
+        viewer.removeAttribute("src");
+        viewerNote.textContent = "Preview requires an online host (like GitHub Pages). Open the file directly for now.";
+      }
+    }
+  </script>
+</body>
+</html>

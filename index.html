@@ -166,7 +166,7 @@
 
     .about {
       display: grid;
-      grid-template-columns: 64px 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 16px;
       align-items: stretch;
     }
@@ -175,14 +175,22 @@
       background: linear-gradient(180deg, rgba(165, 72, 72, 0.5), rgba(165, 72, 72, 0.2));
       border: 1px solid rgba(165, 72, 72, 0.4);
       border-radius: 12px;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       font-size: 0.76rem;
       font-weight: 700;
-      padding: 12px 0;
+      padding: 12px;
+    }
+
+    .about-content {
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .about ul {
@@ -360,8 +368,6 @@
       }
 
       .about-label {
-        writing-mode: horizontal-tb;
-        transform: none;
         letter-spacing: 0.14em;
         padding: 8px 12px;
       }
@@ -416,7 +422,7 @@
 
     <section class="glass panel about" style="--delay: 100ms;">
       <div class="about-label">About Me</div>
-      <div>
+      <div class="about-content">
         <h2>Personal Profile</h2>
         <ul>
           <li>Based in Northern Cyprus and originally from Nigeria.</li>
@@ -472,12 +478,12 @@
     <section class="glass panel" style="--delay: 340ms;">
       <h2>Homework Showcase</h2>
       <div class="homeworks" aria-label="Homework cards">
-        <a class="hw-card" href="https://ireinstark.github.io/Ireoluwaay/" target="_blank" rel="noopener noreferrer">HW 1</a>
-        <a class="hw-card" href="HW/homework%202.docx" target="_blank" rel="noopener noreferrer">HW 2</a>
-        <a class="hw-card active" href="HW/Homework%203%20.docx" target="_blank" rel="noopener noreferrer">HW 3</a>
-        <a class="hw-card" href="HW/hw4.docx" target="_blank" rel="noopener noreferrer">HW 4</a>
-        <a class="hw-card" href="HW/hw5.docx" target="_blank" rel="noopener noreferrer">HW 5</a>
-        <a class="hw-card" href="HW/hw6.docx" target="_blank" rel="noopener noreferrer">HW 6</a>
+        <a class="hw-card" href="homework-showcase.html?hw=1">HW 1</a>
+        <a class="hw-card" href="homework-showcase.html?hw=2">HW 2</a>
+        <a class="hw-card active" href="homework-showcase.html?hw=3">HW 3</a>
+        <a class="hw-card" href="homework-showcase.html?hw=4">HW 4</a>
+        <a class="hw-card" href="homework-showcase.html?hw=5">HW 5</a>
+        <a class="hw-card" href="homework-showcase.html?hw=6">HW 6</a>
       </div>
     </section>
 
