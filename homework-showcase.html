@@ -250,7 +250,7 @@
       downloadLink.href = fileUrl;
       downloadLink.setAttribute("download", "");
 
-      if (window.location.protocol.startsWith("http")) {
+      if (window.location.protocol.startsWith("http") && !window.location.hostname.includes("localhost") && !window.location.hostname.includes("127.0.0.1")) {
         // Google Docs viewer — works with any publicly accessible file
         const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fileUrl)}&embedded=true`;
         viewer.src = viewerUrl;
