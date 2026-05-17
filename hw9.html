@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 9</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+    :root {
+      --bg-main: #10131a;
+      --bg-soft: #181f2c;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-border: rgba(255, 255, 255, 0.14);
+      --text-main: #f6efe0;
+      --text-soft: #d7ccb7;
+      --accent: #7ac3ff;
+      --accent-soft: rgba(122, 195, 255, 0.18);
+      --shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(122, 195, 255, 0.2), transparent 34%),
+        radial-gradient(circle at 82% 12%, rgba(249, 165, 111, 0.16), transparent 28%),
+        linear-gradient(140deg, var(--bg-main), var(--bg-soft));
+      color: var(--text-main);
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      line-height: 1.65;
+      padding: clamp(18px, 2.8vw, 34px);
+    }
+
+    main {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero,
+    .panel {
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1,
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 3.5rem);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2rem);
+      margin-bottom: 14px;
+    }
+
+    p,
+    li {
+      color: var(--text-soft);
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .task {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 22px;
+    }
+
+    @media (max-width: 640px) {
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="glass hero">
+      <p class="eyebrow">Homework 9 Hub</p>
+      <h1>Music Survey </h1>
+      <p>  survey form that includes every required input type,
+        fieldset, legend, and the requested server-side action URL.
+      </p>
+      <div class="actions">
+        <a class="btn" href="index.html">Back to Portfolio</a>
+        <a class="btn" href="form9.html">Open form9.html</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

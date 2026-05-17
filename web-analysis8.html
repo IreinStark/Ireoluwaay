@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 8 | Web Page Analysis</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+    :root {
+      --bg-main: #11141d;
+      --bg-soft: #1a2030;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-border: rgba(255, 255, 255, 0.14);
+      --text-main: #f5efdf;
+      --text-soft: #d8ccbb;
+      --accent: #7ec6a8;
+      --accent-soft: rgba(126, 198, 168, 0.16);
+      --warn: #ef9a7b;
+      --warn-soft: rgba(239, 154, 123, 0.16);
+      --shadow: 0 22px 46px rgba(0, 0, 0, 0.38);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(126, 198, 168, 0.18), transparent 36%),
+        radial-gradient(circle at 86% 12%, rgba(239, 154, 123, 0.18), transparent 32%),
+        linear-gradient(145deg, var(--bg-main), var(--bg-soft));
+      color: var(--text-main);
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      line-height: 1.7;
+      padding: clamp(18px, 2.8vw, 34px);
+    }
+
+    main {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero,
+    .panel {
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1,
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      margin-bottom: 12px;
+    }
+
+    p,
+    li {
+      color: var(--text-soft);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .site-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .site-card.good {
+      box-shadow: inset 0 0 0 1px rgba(126, 198, 168, 0.16);
+    }
+
+    .site-card.bad {
+      box-shadow: inset 0 0 0 1px rgba(239, 154, 123, 0.16);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .good .tag {
+      background: var(--accent-soft);
+      color: #c8f7e0;
+    }
+
+    .bad .tag {
+      background: var(--warn-soft);
+      color: #ffd7cb;
+    }
+
+    .qa {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .qa-block {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .qa-block strong {
+      display: block;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    a {
+      color: #ffe1ae;
+    }
+
+    .note {
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 860px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111111;
+        padding: 0;
+      }
+
+      .glass,
+      .site-card,
+      .qa-block {
+        background: #ffffff;
+        border: 1px solid #c8c8c8;
+        box-shadow: none;
+        color: #111111;
+      }
+
+      p,
+      li,
+      a {
+        color: #222222;
+      }
+
+      .actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="glass hero">
+      <p class="eyebrow">Homework 8 · Task 2</p>
+      <h1>Appealing vs. Unappealing Web Design</h1>
+      <p>
+        This page answers each required question for one website I find appealing and one I find
+        unappealing. It is also styled to print cleanly if a PDF version is needed from the browser.
+      </p>
+      <div class="actions">
+        <a class="btn" href="hw8.html">Back to Homework 8</a>
+      </div>
+    </section>
+
+    <section class="glass panel split">
+      <article class="site-card good">
+        <div class="tag">Appealing Example</div>
+        <h2>Pinterest</h2>
+        <p class="note">
+          URL:
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
+            https://www.pinterest.com/
+          </a>
+        </p>
+
+        <div class="qa">
+          <div class="qa-block">
+            <strong>a. What is the URL of the website?</strong>
+            <p>https://www.pinterest.com/</p>
+          </div>
+
+          <div class="qa-block">
+            <strong>b. Does this page use tables? If so, for what purpose?</strong>
+            <p>
+              Pinterest does not use tables for layout or content presentation. The signature
+              masonry grid is built with modern CSS and JavaScript, allowing content cards to
+              flow fluidly into an asymmetrical, visually engaging arrangement.
+            </p>
+          </div>
+
+          <div class="qa-block">
+            <strong>c. Does this page use CSS? If so, for what purpose?</strong>
+            <p>
+              Yes, extensively. CSS drives the masonry layout, the monochromatic UI palette that
+              lets user content take center stage, smooth hover transitions on pins, responsive
+              behavior across screen sizes, and the overall visual hierarchy of the page.
+            </p>
+          </div>
+
+          <div class="qa-block">
+            <strong>d. Is this page appealing or unappealing? List three reasons.</strong>
+            <ul>
+              <li>The fluid, asymmetrical masonry layout feels dynamic and encourages exploration rather than passive scrolling.</li>
+              <li>The monochromatic UI steps back and lets the vibrant user-generated images become the focal point.</li>
+              <li>Smooth hover states and seamless transitions make interactions feel polished and responsive.</li>
+            </ul>
+          </div>
+
+          <div class="qa-block">
+            <strong>e. If this page is unappealing, what would you do to improve it?</strong>
+            <p>
+              This is my appealing example, so the design works well overall. A minor improvement
+              would be giving users more control over grid density so those who prefer a calmer
+              layout can reduce visual busyness.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="site-card bad">
+        <div class="tag">Unappealing Example</div>
+        <h2>Craigslist</h2>
+        <p class="note">
+          URL:
+          <a href="https://www.craigslist.org/" target="_blank" rel="noopener noreferrer">
+            https://www.craigslist.org/
+          </a>
+        </p>
+
+        <div class="qa">
+          <div class="qa-block">
+            <strong>a. What is the URL of the website?</strong>
+            <p>https://www.craigslist.org/</p>
+          </div>
+
+          <div class="qa-block">
+            <strong>b. Does this page use tables? If so, for what purpose?</strong>
+            <p>
+              Craigslist relies heavily on dense, rigid text columns to organize its category
+              links. The result is a wall of text with little visual separation, making it
+              difficult to scan and navigate at a glance.
+            </p>
+          </div>
+
+          <div class="qa-block">
+            <strong>c. Does this page use CSS? If so, for what purpose?</strong>
+            <p>
+              The page uses minimal CSS. Styling is largely limited to basic link colors and
+              simple spacing, with no meaningful hierarchy, visual grouping, or responsive
+              design. The default HTML blue hyperlinks are used throughout with little customization.
+            </p>
+          </div>
+
+          <div class="qa-block">
+            <strong>d. Is this page appealing or unappealing? List three reasons.</strong>
+            <ul>
+              <li>The dense, rigid text columns offer no visual breathing room, making the page feel overwhelming on first load.</li>
+              <li>Default HTML blue links and sterile backgrounds give the site an unfinished, dated appearance.</li>
+              <li>Harsh, instant page reloads with no transitions make the experience feel abrupt compared to modern web standards.</li>
+            </ul>
+          </div>
+
+          <div class="qa-block">
+            <strong>e. If this page is unappealing, what would you do to improve it?</strong>
+            <ul>
+              <li>Replace the text column layout with a clean card grid that uses whitespace and icons to separate categories visually.</li>
+              <li>Introduce a consistent color palette and updated typography to replace the default browser styling.</li>
+              <li>Add subtle hover states and smoother page transitions to reduce the jarring feel of navigation.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

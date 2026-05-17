@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 8 | Favorite Movie</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+    :root {
+      --bg-main: #0f1219;
+      --bg-soft: #171d28;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-border: rgba(255, 255, 255, 0.14);
+      --text-main: #f6efe2;
+      --text-soft: #d8ccb7;
+      --accent: #f0a562;
+      --accent-soft: rgba(240, 165, 98, 0.18);
+      --shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(240, 165, 98, 0.22), transparent 36%),
+        radial-gradient(circle at 85% 14%, rgba(109, 136, 181, 0.22), transparent 34%),
+        linear-gradient(140deg, var(--bg-main), var(--bg-soft));
+      color: var(--text-main);
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      line-height: 1.65;
+      padding: clamp(18px, 2.8vw, 34px);
+    }
+
+    main {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero,
+    .panel {
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .hero {
+      display: grid;
+      gap: 14px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    h1,
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      line-height: 1;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.2rem);
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: var(--text-soft);
+      max-width: 68ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240, 165, 98, 0.45);
+      background: var(--accent-soft);
+    }
+
+    .movie-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .poster {
+      min-height: 460px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background:
+        linear-gradient(180deg, rgba(15, 18, 25, 0.16), rgba(15, 18, 25, 0.66)),
+        url("Tyler Durden.jpeg") center/cover;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: end;
+    }
+
+    .poster-copy {
+      width: 100%;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(7, 10, 16, 0.88), rgba(7, 10, 16, 0.06));
+    }
+
+    .poster-copy strong {
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .poster-copy span {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 2px solid rgba(240, 165, 98, 0.45);
+      background: rgba(10, 13, 18, 0.44);
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      width: 34%;
+      background: rgba(240, 165, 98, 0.14);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    td {
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    td a,
+    .mail-link {
+      color: #ffd3a9;
+    }
+
+    .mail-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 820px) {
+      .movie-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .poster {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="glass hero">
+      <p class="eyebrow">Homework 8 · Task 1</p>
+      <h1>Favorite Movie Table</h1>
+      <p>
+        This page solves the movie-table requirement with a styled two-column layout, a short
+        summary, an absolute review link, and a contact e-mail link.
+      </p>
+      <div class="actions">
+        <a class="btn" href="hw8.html">Back to Homework 8</a>
+      </div>
+    </section>
+
+    <section class="glass panel">
+      <h2>Fight Club</h2>
+      <div class="movie-layout">
+        <div class="poster" aria-label="Cinematic themed image for Fight Club">
+          <div class="poster-copy">
+            <strong>My favorite movie pick</strong>
+            <span>A psychological thriller about identity, consumerism, and chaos.</span>
+          </div>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+              <th>Title</th>
+              <td>Fight Club</td>
+            </tr>
+            <tr>
+              <th>Director / Producer</th>
+              <td>Directed by David Fincher. Produced by Art Linson, Cean Chaffin, and Ross Grayson Bell.</td>
+            </tr>
+            <tr>
+              <th>Leading Actor</th>
+              <td>Brad Pitt as Tyler Durden</td>
+            </tr>
+            <tr>
+              <th>Leading Actress</th>
+              <td>Helena Bonham Carter as Marla Singer</td>
+            </tr>
+            <tr>
+              <th>Rating</th>
+              <td>R</td>
+            </tr>
+            <tr>
+              <th>Brief Description</th>
+              <td>
+                An insomniac office worker forms an underground fight club with a soap salesman,
+                which spirals into something far more dangerous. The film's sharp commentary on
+                modern masculinity and consumerism makes it unforgettable.
+              </td>
+            </tr>
+            <tr>
+              <th>Absolute Review Link</th>
+              <td>
+                <a href="https://www.rogerebert.com/reviews/fight-club-1999" target="_blank" rel="noopener noreferrer">
+                  Roger Ebert review of Fight Club
+                </a>
+              </td>
+            </tr>
+          </table>
+
+          <a class="mail-link" href="mailto:ireoluwaogunsan@gmail.com">Send me an e-mail about this movie choice</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

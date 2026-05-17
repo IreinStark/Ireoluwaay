@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 9 | Music Survey Form</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+    :root {
+      --bg-main: #10131a;
+      --bg-soft: #181f2c;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-border: rgba(255, 255, 255, 0.14);
+      --text-main: #f6efe0;
+      --text-soft: #d7ccb7;
+      --accent: #7ac3ff;
+      --accent-soft: rgba(122, 195, 255, 0.18);
+      --shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(122, 195, 255, 0.2), transparent 34%),
+        radial-gradient(circle at 86% 12%, rgba(249, 165, 111, 0.18), transparent 28%),
+        linear-gradient(140deg, var(--bg-main), var(--bg-soft));
+      color: var(--text-main);
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      line-height: 1.65;
+      padding: clamp(18px, 2.8vw, 34px);
+    }
+
+    main {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero,
+    .panel {
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1,
+    h2,
+    legend {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--text-soft);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    label,
+    legend {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.18);
+      color: var(--text-main);
+      font: inherit;
+      padding: 13px 14px;
+    }
+
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    select[size] {
+      min-height: 126px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus,
+    button:focus {
+      outline: 2px solid rgba(122, 195, 255, 0.7);
+      outline-offset: 2px;
+      border-color: rgba(122, 195, 255, 0.5);
+    }
+
+    fieldset {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    legend {
+      padding: 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .choice-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .choice input {
+      width: auto;
+      accent-color: #7ac3ff;
+      padding: 0;
+    }
+
+    .choice label {
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .button-row button {
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
+    }
+
+    .button-row button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(122, 195, 255, 0.42);
+    }
+
+    .button-row .primary {
+      background: var(--accent-soft);
+    }
+
+    .helper {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 720px) {
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row,
+      .actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="glass hero">
+      <p class="eyebrow">Homework 9</p>
+      <h1>Music Survey Form</h1>
+      <p>
+        This solution includes every required control from the assignment: name, e-mail, a 60 by 3
+        scrolling text box, a radio group, a checkbox group, a select box showing three items, and
+        submit and reset buttons.
+      </p>
+      <div class="actions">
+        <a class="btn" href="hw9.html">Back to Homework 9</a>
+        <a class="btn" href="homework-showcase.html?hw=9">Open Showcase</a>
+      </div>
+    </section>
+
+    <section class="glass panel">
+      <form action="http://www.uyar.com/teaching/ecc006/2017spring/login.php" method="post">
+        <div class="field-grid">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail Address</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="music-story">Tell us about your current music mood</label>
+          <textarea id="music-story" name="music_story" cols="60" rows="3" placeholder="What are you listening to lately, and why does it stand out to you?"></textarea>
+        </div>
+
+        <fieldset>
+          <legend>Favorite Listening Time</legend>
+          <div class="choice-grid">
+            <div class="choice">
+              <input id="time-morning" name="listening_time" type="radio" value="Morning" required>
+              <label for="time-morning">Morning focus sessions</label>
+            </div>
+            <div class="choice">
+              <input id="time-evening" name="listening_time" type="radio" value="Evening">
+              <label for="time-evening">Evening wind-down hours</label>
+            </div>
+            <div class="choice">
+              <input id="time-night" name="listening_time" type="radio" value="Late Night">
+              <label for="time-night">Late-night playlists</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Which types of music do you enjoy?</legend>
+          <div class="choice-grid">
+            <div class="choice">
+              <input id="genre-afrobeats" name="genres" type="checkbox" value="Afrobeats">
+              <label for="genre-afrobeats">Afrobeats</label>
+            </div>
+            <div class="choice">
+              <input id="genre-rnb" name="genres" type="checkbox" value="R&amp;B">
+              <label for="genre-rnb">R&amp;B</label>
+            </div>
+            <div class="choice">
+              <input id="genre-jazz" name="genres" type="checkbox" value="Jazz">
+              <label for="genre-jazz">Jazz</label>
+            </div>
+            <div class="choice">
+              <input id="genre-hiphop" name="genres" type="checkbox" value="Hip-Hop">
+              <label for="genre-hiphop">Hip-Hop</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="platform">Where do you usually discover new music?</label>
+          <select id="platform" name="platform" size="3">
+            <option value="Spotify">Spotify playlists</option>
+            <option value="YouTube">YouTube recommendations</option>
+            <option value="Friends">Friends and social media</option>
+            <option value="Radio">Radio or live DJs</option>
+            <option value="Streaming">Film and series soundtracks</option>
+          </select>
+          <p class="helper">The list shows three items at first, but it contains more than four choices as required.</p>
+        </div>
+
+        <div class="button-row">
+          <button class="primary" type="submit">Submit Survey</button>
+          <button type="reset">Reset Form</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
