@@ -316,6 +316,51 @@
       filter: grayscale(0.25);
     }
 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      display: block;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: rgba(165, 72, 72, 0.1);
+    }
+
+    .project-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .project-card .muted {
+      font-size: 0.87rem;
+      margin-bottom: 12px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: #f3b7b7;
+      border-radius: 6px;
+      padding: 2px 9px;
+      letter-spacing: 0.03em;
+    }
+
     .contact a {
       color: #f3b7b7;
       text-decoration: none;
@@ -473,6 +518,19 @@
           <li>Product-Oriented Coding</li>
         </ul>
       </article>
+    </section>
+
+    <section class="glass panel" style="--delay: 310ms;">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        <a class="project-card" href="../eclipse-archive/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="project-card-inner">
+            <h3>Eclipse Archive</h3>
+            <p class="muted">A multi-page fan archive site — stories, characters, gallery, and reviews — built with HTML &amp; CSS.</p>
+            <span class="project-tag">HTML / CSS</span>
+          </div>
+        </a>
+      </div>
     </section>
 
     <section class="glass panel" style="--delay: 340ms;">
