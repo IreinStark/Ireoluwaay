@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Eclipse Archive</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      padding: 5rem 5rem 8rem;
+    }
+    .contact-left h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 1.5rem;
+    }
+    .contact-left p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .currently-watching {
+      padding: 4rem 5rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .social-section {
+      padding: 4rem 5rem 6rem;
+    }
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 4rem 1.5rem 6rem;
+      }
+      .currently-watching,
+      .social-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Eclipse<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Archive</a>
+    <a href="characters.html">Characters</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label reveal">Reach Out</p>
+    <h1 class="reveal delay-1">Contact</h1>
+    <p class="reveal delay-2">Recommend a series. Share a thought. Tell me what broke you. This archive is alive as long as it's fed by genuine feeling.</p>
+  </div>
+
+  <!-- CONTACT LAYOUT -->
+  <div class="contact-layout">
+
+    <!-- LEFT SIDE -->
+    <div class="contact-left reveal">
+      <h2>Send a<br /><em class="serif" style="color:var(--accent);font-style:italic;">Recommendation</em></h2>
+      <p>If a series shattered something inside you and put it back together differently — it belongs here. Tell me about it. Obscure is welcome. Painful is especially welcome.</p>
+      <div class="divider"></div>
+      <p style="font-size:0.8rem; color:var(--text-dim); letter-spacing:0.05em;">
+        eclipsearchive@proton.me<br />
+        Responses in 24–48 hours.
+      </p>
+    </div>
+
+    <!-- FORM -->
+    <form class="contact-wrap reveal delay-1" id="contact-form" novalidate>
+
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Anonymous is fine." required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="For replies only." required />
+      </div>
+
+      <div class="form-group">
+        <label for="genre">Favorite Genre</label>
+        <select id="genre" name="genre">
+          <option value="" disabled selected>Select a genre</option>
+          <option value="psychological">Psychological</option>
+          <option value="dark-fantasy">Dark Fantasy</option>
+          <option value="action">Action</option>
+          <option value="drama">Drama / Slice of Life</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="horror">Horror</option>
+          <option value="romance">Romance</option>
+          <option value="historical">Historical</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message / Recommendation</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell me about the series, why it matters to you, and what emotion it left you with..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-accent" style="width:100%; justify-content:center; padding:1.1rem;">
+        Submit Recommendation
+      </button>
+    </form>
+  </div>
+
+  <!-- CURRENTLY WATCHING -->
+  <div class="currently-watching">
+    <p class="section-label reveal">On the Screen</p>
+    <h2 class="reveal delay-1" style="font-size:clamp(1.6rem,3vw,2.5rem); margin-bottom:2.5rem;">Currently Watching</h2>
+    <div class="watching-grid">
+      <div class="watching-item reveal delay-1">
+        <div class="watching-status">● Now Watching</div>
+        <h4>Frieren: Beyond Journey's End</h4>
+        <p>A slow, melancholic meditation on time, memory, and what we leave behind in those who outlive us.</p>
+      </div>
+      <div class="watching-item reveal delay-2">
+        <div class="watching-status">◌ Queued</div>
+        <h4>Planetes</h4>
+        <p>A grounded sci-fi about garbage collectors in space, and the cost of dreaming past your station.</p>
+      </div>
+      <div class="watching-item reveal delay-3">
+        <div class="watching-status">✓ Completed</div>
+        <h4>Mushishi</h4>
+        <p>Quiet, folkloric, achingly human. Stories about the invisible forces that shape a life from the edges.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL + LINKS -->
+  <div class="social-section">
+    <p class="section-label reveal">Find the Archive</p>
+    <h3 class="reveal delay-1" style="font-size:clamp(1.4rem,2.5vw,2rem); margin-bottom:0.8rem; font-family:'Playfair Display',serif;">Follow the Silence</h3>
+    <p class="reveal delay-2" style="color:var(--text-muted); font-size:0.9rem; max-width:400px; margin-bottom:1.5rem;">
+      Updates on new entries, character spotlights, and thoughts that don't fit in the archive.
+    </p>
+    <div class="social-links reveal delay-3">
+      <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+      <a href="#" class="social-link" aria-label="Instagram">Ig</a>
+      <a href="#" class="social-link" aria-label="Letterboxd">Lb</a>
+      <a href="#" class="social-link" aria-label="MAL">Ml</a>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div>
+      <div class="footer-logo">Eclipse<em>.</em></div>
+      <p style="margin-top:0.5rem;">A cinematic archive of emotional storytelling.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="archive.html">Archive</a>
+      <a href="characters.html">Characters</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+    <p>© 2024 Eclipse Archive.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

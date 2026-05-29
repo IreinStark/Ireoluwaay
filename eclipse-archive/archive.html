@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive — Eclipse Archive</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Eclipse<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Archive</a>
+    <a href="characters.html">Characters</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label reveal">Collection</p>
+    <h1 class="reveal delay-1">The Archive</h1>
+    <p class="reveal delay-2">A curated collection of works selected not for popularity, but for the emotional weight they leave behind. Each entry is a doorway.</p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <section style="padding: 3rem 5rem 2rem; border-bottom: 1px solid var(--border);">
+    <div class="gallery-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Works</button>
+      <button class="filter-btn" data-filter="psychological">Psychological</button>
+      <button class="filter-btn" data-filter="dark-fantasy">Dark Fantasy</button>
+      <button class="filter-btn" data-filter="action">Action</button>
+      <button class="filter-btn" data-filter="drama">Drama</button>
+    </div>
+  </section>
+
+  <!-- ANIME GRID -->
+  <section style="padding: 3rem 5rem 7rem;">
+    <div class="anime-grid">
+
+      <div class="anime-card reveal" data-tone="action">
+        <img src="https://picsum.photos/seed/aot1/400/600" alt="Attack on Titan" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.8 / 10</div>
+          <div class="tags">
+            <span class="tag">Survival</span>
+            <span class="tag">Freedom</span>
+            <span class="tag">Sacrifice</span>
+          </div>
+          <h3 class="anime-card-title">Attack on Titan</h3>
+          <p class="anime-card-desc">A saga about the violence inherent in the quest for freedom, and the unbearable weight of the choices we make for those we love.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-1" data-tone="psychological">
+        <img src="https://picsum.photos/seed/dn2024/400/600" alt="Death Note" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.5 / 10</div>
+          <div class="tags">
+            <span class="tag">Justice</span>
+            <span class="tag">Power</span>
+            <span class="tag">Corruption</span>
+          </div>
+          <h3 class="anime-card-title">Death Note</h3>
+          <p class="anime-card-desc">A god complex unwinding in real time. The tragedy of a genius who confused intelligence for righteousness.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-2" data-tone="drama">
+        <img src="https://picsum.photos/seed/vinland88/400/600" alt="Vinland Saga" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.4 / 10</div>
+          <div class="tags">
+            <span class="tag">Loss</span>
+            <span class="tag">Redemption</span>
+            <span class="tag">Peace</span>
+          </div>
+          <h3 class="anime-card-title">Vinland Saga</h3>
+          <p class="anime-card-desc">A warrior's long and painful journey to becoming human. The most honest anti-war story in anime.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-3" data-tone="action">
+        <img src="https://picsum.photos/seed/bluelock24/400/600" alt="Blue Lock" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.0 / 10</div>
+          <div class="tags">
+            <span class="tag">Ambition</span>
+            <span class="tag">Ego</span>
+            <span class="tag">Identity</span>
+          </div>
+          <h3 class="anime-card-title">Blue Lock</h3>
+          <p class="anime-card-desc">A brutalist meditation on ego, talent, and the violence required to reach the summit of excellence.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-1" data-tone="dark-fantasy">
+        <img src="https://picsum.photos/seed/jjk2025/400/600" alt="Jujutsu Kaisen" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.2 / 10</div>
+          <div class="tags">
+            <span class="tag">Cursed</span>
+            <span class="tag">Grief</span>
+            <span class="tag">Strength</span>
+          </div>
+          <h3 class="anime-card-title">Jujutsu Kaisen</h3>
+          <p class="anime-card-desc">Curses are born from human emotion. So is the will to overcome them. A story about choosing to fight even without hope.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-2" data-tone="dark-fantasy">
+        <img src="https://picsum.photos/seed/berserk99/400/600" alt="Berserk" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.7 / 10</div>
+          <div class="tags">
+            <span class="tag">Fate</span>
+            <span class="tag">Betrayal</span>
+            <span class="tag">Defiance</span>
+          </div>
+          <h3 class="anime-card-title">Berserk</h3>
+          <p class="anime-card-desc">The definitive dark fantasy. A man who refuses to let fate dictate who he becomes, even when the world conspires to break him.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-3" data-tone="psychological">
+        <img src="https://picsum.photos/seed/monster55/400/600" alt="Monster" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.6 / 10</div>
+          <div class="tags">
+            <span class="tag">Morality</span>
+            <span class="tag">Evil</span>
+            <span class="tag">Humanity</span>
+          </div>
+          <h3 class="anime-card-title">Monster</h3>
+          <p class="anime-card-desc">Is there such a thing as a person born evil? A surgeon chases a monster of his own creation across post-Cold War Europe.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-1" data-tone="drama">
+        <img src="https://picsum.photos/seed/clannad11/400/600" alt="Clannad After Story" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.3 / 10</div>
+          <div class="tags">
+            <span class="tag">Family</span>
+            <span class="tag">Grief</span>
+            <span class="tag">Love</span>
+          </div>
+          <h3 class="anime-card-title">Clannad: After Story</h3>
+          <p class="anime-card-desc">The emotional reckoning of adulthood. A reminder that what we love most is what makes us most vulnerable.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-2" data-tone="psychological">
+        <img src="https://picsum.photos/seed/evangelion33/400/600" alt="Neon Genesis Evangelion" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.5 / 10</div>
+          <div class="tags">
+            <span class="tag">Depression</span>
+            <span class="tag">Identity</span>
+            <span class="tag">Loneliness</span>
+          </div>
+          <h3 class="anime-card-title">Evangelion</h3>
+          <p class="anime-card-desc">A mecha series that turned inward and never looked back. The most honest depiction of depression wrapped in apocalypse.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-3" data-tone="action">
+        <img src="https://picsum.photos/seed/hxh77/400/600" alt="Hunter x Hunter" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.3 / 10</div>
+          <div class="tags">
+            <span class="tag">Darkness</span>
+            <span class="tag">Friendship</span>
+            <span class="tag">Obsession</span>
+          </div>
+          <h3 class="anime-card-title">Hunter x Hunter</h3>
+          <p class="anime-card-desc">A shonen that dismantles the genre. A boy whose smile conceals something that frightens even his closest friend.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-1" data-tone="drama">
+        <img src="https://picsum.photos/seed/yourlie44/400/600" alt="Your Lie in April" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 8.9 / 10</div>
+          <div class="tags">
+            <span class="tag">Music</span>
+            <span class="tag">Loss</span>
+            <span class="tag">First Love</span>
+          </div>
+          <h3 class="anime-card-title">Your Lie in April</h3>
+          <p class="anime-card-desc">A pianist who can no longer hear his own music. A girl who teaches him that beauty and sadness are not so different.</p>
+        </div>
+      </div>
+
+      <div class="anime-card reveal delay-2" data-tone="dark-fantasy">
+        <img src="https://picsum.photos/seed/fma66/400/600" alt="Fullmetal Alchemist Brotherhood" loading="lazy" />
+        <div class="anime-card-overlay">
+          <div class="anime-card-rating">★ 9.9 / 10</div>
+          <div class="tags">
+            <span class="tag">Equivalent Exchange</span>
+            <span class="tag">War</span>
+            <span class="tag">Truth</span>
+          </div>
+          <h3 class="anime-card-title">FMA: Brotherhood</h3>
+          <p class="anime-card-desc">The gold standard. Two brothers uncover a conspiracy built on human suffering. Every sacrifice is real and weighted.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div>
+      <div class="footer-logo">Eclipse<em>.</em></div>
+      <p style="margin-top:0.5rem;">A cinematic archive of emotional storytelling.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="characters.html">Characters</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>© 2024 Eclipse Archive.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Archive-specific filter for anime cards (by data-tone attribute)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.anime-card').forEach(card => {
+          if (filter === 'all' || card.dataset.tone === filter) {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+            card.style.pointerEvents = 'auto';
+          } else {
+            card.style.opacity = '0.15';
+            card.style.transform = 'scale(0.98)';
+            card.style.pointerEvents = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
